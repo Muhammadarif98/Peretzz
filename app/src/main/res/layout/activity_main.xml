@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_main" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViews"
         android:layout_width="match_parent"
         android:layout_height="743dp"
         android:background="#141414" />
-    <include
-        layout="@layout/toolbar_main"
-        android:id="@+id/toolbar" />
+
+
 </LinearLayout>
