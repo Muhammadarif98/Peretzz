@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Peretzz</string>
+    <string name="search_product">Search product</string>
+    <string name="search_product_title">Search product</string>
 </resources>
