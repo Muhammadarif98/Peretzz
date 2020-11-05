@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.os.Bundle;
+
+import com.squareup.picasso.Request;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
+    Request mRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mRecyclerView = findViewById(R.id.recyclerViews);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         myAdapter = new MyAdapter(this, getMyList());
@@ -33,11 +38,6 @@ public class MainActivity extends AppCompatActivity {
         m.setImg(R.drawable.ic_launcher_background);
         models.add(m);
 
-        m = new Model();
-        m.setTitle("Peretz");
-        m.setDescription("This is new feed peretz..");
-        m.setImg(R.drawable.ic_launcher_background);
-        models.add(m);
 
         return models;
     }

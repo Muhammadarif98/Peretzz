@@ -3,15 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="3dp"
-    app:cardUseCompatPadding="true">
+    app:cardCornerRadius="1dp"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true"
+    android:background="@color/black">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp" >
+        android:padding="16dp"
+        android:background="@color/black">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="75dp"
@@ -26,12 +28,13 @@
             android:id="@+id/titleTv"
             android:text="Title"
             android:textSize="22sp"
-            android:textColor="@color/black"
+            android:textColor="#ffff"
             android:textStyle="bold"
             android:layout_toRightOf="@id/imageIv"
             android:layout_toEndOf="@id/imageIv"
             android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp">
+            android:layout_marginStart="10dp"
+            >
 
         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -48,7 +51,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_below="@id/titleTv"/>
+            android:layout_below="@id/titleTv"
+            />
 
     </RelativeLayout>
 
