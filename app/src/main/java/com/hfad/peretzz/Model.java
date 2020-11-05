@@ -1,7 +1,7 @@
 package com.hfad.peretzz;
 
 public class Model {
-    private String title,description;
+    private String title,description,price;
     private int img;
 
     public String getTitle() {
@@ -27,4 +27,13 @@ public class Model {
     public void setImg(int img) {
         this.img = img;
     }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
 }

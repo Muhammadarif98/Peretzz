@@ -38,6 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.mTitle.setText(models.get(position).getTitle());
         holder.mDes.setText(models.get(position).getDescription());
         holder.mImageView.setImageResource(models.get(position).getImg());
+        holder.mPrice.setText(models.get(position).getPrice());
 
 
 

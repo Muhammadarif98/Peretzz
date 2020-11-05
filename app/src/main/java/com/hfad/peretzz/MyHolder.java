@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyHolder extends RecyclerView.ViewHolder {
 
     ImageView mImageView;
-    TextView mTitle,mDes;
+    TextView mTitle,mDes,mPrice;
 
     public MyHolder(@NonNull View itemView) {
         super(itemView);
@@ -18,6 +18,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
         this.mImageView = itemView.findViewById(R.id.imageIv);
         this.mTitle = itemView.findViewById(R.id.titleTv);
         this.mDes = itemView.findViewById(R.id.descriptionTv);
+        this.mPrice = itemView.findViewById(R.id.priceTv);
 
     }
 }
