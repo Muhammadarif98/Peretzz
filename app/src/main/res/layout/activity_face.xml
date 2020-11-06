@@ -9,14 +9,15 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_main" />
+
     <Button
         android:id="@+id/tvr"
         android:layout_width="299dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="51dp"
-        android:text="Перейт к товарам"
+        android:layout_marginBottom="44dp"
         android:background="@color/teal_700"
+        android:text="Перейт к товарам"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
