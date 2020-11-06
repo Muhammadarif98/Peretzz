@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Model> getMyList() {
         ArrayList<Model> models = new ArrayList<>();
         Model m = new Model();
-        m.setTitle("This is Title");
+       /* m.setTitle("This is Title");
         m.setDescription("This is new description..");
         m.setPrice("400 ₽");
         m.setImg(R.drawable.ic_launcher_background);
-        models.add(m);
+        models.add(m);*/
 
 
         return models;

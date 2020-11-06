@@ -1,39 +1,50 @@
 package com.hfad.peretzz;
 
+import java.util.List;
+
 public class Model {
-    private String title,description,price;
-    private int img;
+private List<Result> results;
 
-    public String getTitle() {
-        return title;
+    public List<Result> getResults() {
+
+        return results;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
-    public String getDescription() {
-        return description;
-    }
+   public static class Result {
+       private String title, description, price;
+       private int img;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+       public String getTitle () {
+           return title;
+       }
 
-    public int getImg() {
-        return img;
-    }
+       public void setTitle (String title){
+           this.title = title;
+       }
 
-    public void setImg(int img) {
-        this.img = img;
-    }
+       public String getDescription () {
+           return description;
+       }
 
-    public String getPrice() {
-        return price;
-    }
+       public void setDescription (String description){
+           this.description = description;
+       }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+       public int getImg () {
+           return img;
+       }
 
+       public void setImg ( int img){
+           this.img = img;
+       }
+
+       public String getPrice () {
+           return price;
+       }
+
+       public void setPrice (String price){
+           this.price = price;
+       }
+   }
 }
