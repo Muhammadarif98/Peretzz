@@ -2,118 +2,121 @@ package com.hfad.peretzz;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
-public class Post {
-    @SerializedName("id") // date name description new variations price image_app image sort
+public class Post{
+
+    @SerializedName("id")
     @Expose
-    private  int id;
+    private Integer id;
     @SerializedName("date")
     @Expose
-    private  int date;
+    private String date;
     @SerializedName("name")
     @Expose
-    private  int name;
+    private String name;
     @SerializedName("description")
     @Expose
-    private  int description;
+    private String description;
     @SerializedName("new")
     @Expose
-    private  int nnew;
+    private Boolean _new;
     @SerializedName("variations")
     @Expose
-    private  int variations;
+    private List<Object> variations = null;
     @SerializedName("price")
     @Expose
-    private  int price;
+    private Integer price;
     @SerializedName("image_app")
     @Expose
-    private  int image_app;
+    private String imageApp;
     @SerializedName("image")
     @Expose
-    private  int image;
+    private String image;
     @SerializedName("sort")
     @Expose
-    private  int sort;
+    private Integer sort;
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public int getDescription() {
-        return description;
-    }
-
-    public int getImage() {
-        return image;
-    }
-
-    public int getImage_app() {
-        return image_app;
-    }
-
-    public int getName() {
-        return name;
-    }
-
-    public int getNnew() {
-        return nnew;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public int getVariations() {
-        return variations;
-    }
-
-    public int getSort() {
-        return sort;
-    }
-
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public void setDescription(int description) {
-        this.description = description;
+    public String getName() {
+        return name;
     }
 
-    public void setImage_app(int image_app) {
-        this.image_app = image_app;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setNnew(int nnew) {
-        this.nnew = nnew;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setSort(int sort) {
-        this.sort = sort;
+    public Boolean getNew() {
+        return _new;
     }
 
-    public void setVariations(int variations) {
+    public void setNew(Boolean _new) {
+        this._new = _new;
+    }
+
+    public List<Object> getVariations() {
+        return variations;
+    }
+
+    public void setVariations(List<Object> variations) {
         this.variations = variations;
     }
 
-}
+    public Integer getPrice() {
+        return price;
+    }
 
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getImageApp() {
+        return imageApp;
+    }
+
+    public void setImageApp(String imageApp) {
+        this.imageApp = imageApp;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+
+}

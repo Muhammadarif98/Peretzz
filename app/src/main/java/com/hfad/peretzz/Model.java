@@ -3,15 +3,7 @@ package com.hfad.peretzz;
 import java.util.List;
 
 public class Model {
-private List<Result> results;
 
-    public List<Result> getResults() {
-
-        return results;
-    }
-
-
-   public static class Result {
        public String title, description, price;
        private int img;
 
@@ -46,5 +38,5 @@ private List<Result> results;
        public void setPrice (String price){
            this.price = price;
        }
-   }
+
 }

@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface RestService {
-    @GET("/post/{id}")
-    public Call<Post> getPostWithId(@Path("id") int id);
+    @GET("array.json")
+    public Call<Post> getPost();
 }
