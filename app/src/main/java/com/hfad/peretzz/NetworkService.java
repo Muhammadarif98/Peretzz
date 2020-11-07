@@ -8,6 +8,7 @@ public class NetworkService {
 
     private static NetworkService INSTANCE = null;
     private RestService service;
+    private Retrofit retrofit;
 
     public static NetworkService getInstance() {
         if (INSTANCE == null) {
@@ -17,7 +18,7 @@ public class NetworkService {
     }
 
     public void build() {
-        Retrofit retrofit = new Retrofit.Builder()
+         retrofit = new Retrofit.Builder()
                 .baseUrl("https://peretz-group.ru/api/v2/products?category=93&key=47be9031474183ea92958d5e255d888e47bdad44afd5d7b7201d0eb572be5278")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -25,7 +26,7 @@ public class NetworkService {
         service = retrofit.create(RestService.class);
     }
 
-    public RestService getService() {
-        return service;
+    public RestService getJsonApi() {
+        return retrofit.create(RestService.class);
     }
 }

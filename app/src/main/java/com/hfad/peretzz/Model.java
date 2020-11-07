@@ -12,7 +12,7 @@ private List<Result> results;
 
 
    public static class Result {
-       private String title, description, price;
+       public String title, description, price;
        private int img;
 
        public String getTitle () {
