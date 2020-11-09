@@ -10,6 +10,17 @@ public class NetworkService {
     private RestService service;
     private Retrofit retrofit;
 
+
+    private NetworkService() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl("https://peretz-group.ru/api/v2/products?category=93&key=47be9031474183ea92958d5e255d888e47bdad44afd5d7b7201d0eb572be5278")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+       // service = retrofit.create(RestService.class);
+    }
+
+
     public static NetworkService getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new NetworkService();
@@ -17,14 +28,7 @@ public class NetworkService {
         return INSTANCE;
     }
 
-    public void build() {
-         retrofit = new Retrofit.Builder()
-                .baseUrl("https://peretz-group.ru/api/v2/products?category=93&key=47be9031474183ea92958d5e255d888e47bdad44afd5d7b7201d0eb572be5278")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        service = retrofit.create(RestService.class);
-    }
 
     public RestService getJsonApi() {
         return retrofit.create(RestService.class);

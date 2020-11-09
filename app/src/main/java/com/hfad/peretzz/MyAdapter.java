@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context context;
-    ArrayList<Model> models; //этот массив создает список массива, параметрами которые являются наш класс Model
+    ArrayList<MainActivity> models; //этот массив создает список массива, параметрами которые являются наш класс Model
 
 
-    public MyAdapter(Context context, ArrayList<Model> models){
+    public MyAdapter(Context context, ArrayList<MainActivity> models){
         this.context = context;
         this.models = models;
     }
@@ -35,10 +35,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
 
-        holder.mTitle.setText(models.get(position).getTitle());
-        holder.mDes.setText(models.get(position).getDescription());
+        holder.mTitle.setText(models.get(position).getTitl());
+        holder.mDes.setText(models.get(position).getDesc());
         holder.mImageView.setImageResource(models.get(position).getImg());
-        holder.mPrice.setText(models.get(position).getPrice());
+        holder.mPrice.setText(models.get(position).getPric());
 
 
 

@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
 
+    private String title, descr;
+    private Integer pric;
+    private int img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,40 +40,77 @@ public class MainActivity extends AppCompatActivity {
         myAdapter = new MyAdapter(this, getMyList());
         mRecyclerView.setAdapter(myAdapter);
 
-        Toolbar toolbar =  findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        NetworkService.getInstance().getJsonApi().getPost().enqueue(new Callback<Post>() {
-            @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                Post post = response.body();
+        NetworkService.getInstance()
+                .getJsonApi()
+                .getPost()
+                .enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+                        Post post = response.body();
+                        setTitle(post.getName() + "\n");
+                        setDesc(post.getDescription() + "\n");
+                        setImg(post.getImage());
+                        setPric(post.getPrice());
+                    }
 
-            }
-
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                Log.d ("TAG", "Response =" + t.toString ());
-            }
-        });
-
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        Log.d("TAG", "Response =" + t.toString());
+                    }
+                });
 
 
     }
 
-    private ArrayList<Model> getMyList() {
-        ArrayList<Model> models = new ArrayList<>();
-        Model m = new Model();
-       /* m.setTitle("This is Title");
+    public String getTitl() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDesc() {
+        return descr;
+    }
+
+    public void setDesc(String desc) {
+        this.descr = descr;
+    }
+
+    public int getImg() {
+        return img;
+    }
+
+    public void setImg(int img) {
+        this.img = img;
+    }
+
+    public Integer getPric() {
+        return pric;
+    }
+
+    public void setPric(Integer pric) {
+        this.pric = pric;
+    }
+
+     private ArrayList<MainActivity> getMyList() {
+       ArrayList<MainActivity> models = new ArrayList<>();
+        MainActivity m = new MainActivity();/*
+        m.setTitle("This is Title");
         m.setDescription("This is new description..");
         m.setPrice("400 ₽");
         m.setImg(R.drawable.ic_launcher_background);
         models.add(m);*/
 
 
-        return models;
-    }
+        return models;}
+
    @Override
 public boolean onCreateOptionsMenu(Menu menu) {
     getMenuInflater().inflate(R.menu.menu_main, menu);

@@ -3,8 +3,8 @@ package com.hfad.peretzz;
 import java.util.List;
 
 public class Model {
-
-       public String title, description, price;
+/*
+       public String title, descr, pric;
        private int img;
 
        public String getTitle () {
@@ -15,12 +15,12 @@ public class Model {
            this.title = title;
        }
 
-       public String getDescription () {
-           return description;
+       public String getDescr () {
+           return descr;
        }
 
-       public void setDescription (String description){
-           this.description = description;
+       public void setDescription (String desc){
+           this.descr = descr;
        }
 
        public int getImg () {
@@ -31,12 +31,12 @@ public class Model {
            this.img = img;
        }
 
-       public String getPrice () {
-           return price;
+       public String getPric () {
+           return pric;
        }
 
-       public void setPrice (String price){
-           this.price = price;
+       public void setPric (String pric){
+           this.pric = pric;
        }
-
+*/
 }
