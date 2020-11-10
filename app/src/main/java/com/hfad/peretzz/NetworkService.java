@@ -9,11 +9,12 @@ public class NetworkService {
     private static NetworkService INSTANCE = null;
     private RestService service;
     private Retrofit retrofit;
+   // String Base_URL =
 
 
     private NetworkService() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://peretz-group.ru/api/v2/products?category=93&key=47be9031474183ea92958d5e255d888e47bdad44afd5d7b7201d0eb572be5278")
+                .baseUrl("https://peretz-group.ru/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
