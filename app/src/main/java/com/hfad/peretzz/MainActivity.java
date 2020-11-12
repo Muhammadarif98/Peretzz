@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String title, descr;
     private Integer pric;
-    private int img;
+    private String img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +49,25 @@ public class MainActivity extends AppCompatActivity {
         NetworkService.getInstance()
                 .getJsonApi()
                 .getPost()
-                .enqueue(new Callback<Post>() {
+                .enqueue(new Callback<List<Post>>() {
                     @Override
-                    public void onResponse(Call<Post> call, Response<Post> response) {
-                        Post post = response.body();
+                    public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                        Post post = new Post();
+                        response.body().size();
                         setTitle(post.getName() + "\n");
                         setDesc(post.getDescription() + "\n");
                         setImg(post.getImage());
                         setPric(post.getPrice());
+
+                        Log.d("TAG2", "onResponse"+ (response.body()));
                     }
 
                     @Override
-                    public void onFailure(Call<Post> call, Throwable t) {
-                        Log.d("TAG", "Response =" + t.toString());
+                    public void onFailure(Call<List<Post>> call, Throwable throwable) {
+                        Log.d("TAG", "Response Failure =" + throwable.toString());
                     }
+
+
                 });
 
 
@@ -83,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
         this.descr = descr;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 

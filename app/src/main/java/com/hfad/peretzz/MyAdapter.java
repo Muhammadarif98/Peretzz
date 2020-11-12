@@ -37,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
         holder.mTitle.setText(models.get(position).getTitl());
         holder.mDes.setText(models.get(position).getDesc());
-        holder.mImageView.setImageResource(models.get(position).getImg());
+        holder.mImageView.setImageResource(Integer.parseInt(models.get(position).getImg()));
         holder.mPrice.setText(models.get(position).getPric());
 
 
@@ -46,6 +46,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @Override
     public int getItemCount() {
-        return models.size();
+        return (null != models ? models.size() : 0 );
     }
 }

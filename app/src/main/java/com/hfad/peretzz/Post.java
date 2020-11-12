@@ -2,7 +2,6 @@ package com.hfad.peretzz;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import java.util.List;
 
 public class Post{
 
@@ -20,7 +19,7 @@ public class Post{
     private Integer price;
     @SerializedName("image")
     @Expose
-    private Integer image;
+    private String image;
 
 
 
@@ -56,11 +55,11 @@ public class Post{
         this.price = price;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -17,10 +17,7 @@ public class NetworkService {
                 .baseUrl("https://peretz-group.ru/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-       // service = retrofit.create(RestService.class);
     }
-
 
     public static NetworkService getInstance() {
         if (INSTANCE == null) {
@@ -28,8 +25,6 @@ public class NetworkService {
         }
         return INSTANCE;
     }
-
-
 
     public RestService getJsonApi() {
         return retrofit.create(RestService.class);
