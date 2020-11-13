@@ -14,7 +14,7 @@
         android:id="@+id/recyclerViews"
         android:layout_width="match_parent"
         android:layout_height="743dp"
-        android:background="#141414" />
+        android:background="#000000" />
 
 
 </LinearLayout>
