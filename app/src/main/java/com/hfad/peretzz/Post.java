@@ -16,7 +16,7 @@ public class Post{
     private String description;
     @SerializedName("price")
     @Expose
-    private Integer price;
+    private String price;
     @SerializedName("image")
     @Expose
     private String image;
@@ -47,11 +47,11 @@ public class Post{
         this.description = description;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

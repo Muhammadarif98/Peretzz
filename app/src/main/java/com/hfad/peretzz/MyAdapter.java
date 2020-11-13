@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
@@ -37,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
         holder.mTitle.setText(models.get(position).getName());
         holder.mDes.setText(models.get(position).getDescription());
-        holder.mImageView.setImageResource(Integer.parseInt(models.get(position).getImage()));
+        Picasso.get().load(models.get(position).getImage()).fit().into(holder.mImageView);
         holder.mPrice.setText(models.get(position).getPrice());
 
 

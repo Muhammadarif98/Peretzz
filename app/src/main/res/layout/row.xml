@@ -62,26 +62,12 @@
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/imageIv"
             android:layout_toRightOf="@id/imageIv"
-            android:text="345 ₽"
+            android:text="345"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="normal"
             android:layout_below="@id/descriptionTv"
             android:layout_marginTop="16dp"/>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/descriptionTv"
-            android:layout_alignEnd="@+id/descriptionTv"
-            android:layout_marginStart="125dp"
-            android:layout_marginLeft="125dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
-            android:layout_toEndOf="@id/priceTv"
-            android:layout_toRightOf="@id/priceTv"
-            android:background="@drawable/ic_baseline_add_circle_24" />
 
     </RelativeLayout>
 

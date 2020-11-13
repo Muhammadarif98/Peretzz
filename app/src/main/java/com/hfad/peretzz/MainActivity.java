@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<List<Post>> call, Throwable throwable) {
                         Log.d("TAG", "Response Failure =" + throwable.toString());
-                        Toast.makeText(MainActivity.this,"Oops! Something went wrong!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,"Упс! Что то пошло не так", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
