@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -24,10 +25,11 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
+    private ArrayList<Post> posts =new ArrayList<>();
 
-    private String title, descr;
+    /*private String title, descr;
     private Integer pric;
-    private String img;
+    private String img;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerViews);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        myAdapter = new MyAdapter(this, getMyList());
-        mRecyclerView.setAdapter(myAdapter);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,28 +51,32 @@ public class MainActivity extends AppCompatActivity {
                 .enqueue(new Callback<List<Post>>() {
                     @Override
                     public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-                        Post post = new Post();
-                        response.body().size();
-                        setTitle(post.getName() + "\n");
-                        setDesc(post.getDescription() + "\n");
-                        setImg(post.getImage());
-                        setPric(post.getPrice());
-
+                        if (response.isSuccessful() && response.body()!=null){
+                            posts = new ArrayList<>(response.body());
+                            myAdapter=new MyAdapter(MainActivity.this, posts);
+                            mRecyclerView.setAdapter(myAdapter);
+                        }
+                        /*//List<Post> getMyList = response.body();
+                       // Post m = new Post();
+                        List<Post> post =  new ArrayList<>();
+                        ArrayList<MainActivity> models = new ArrayList<>();
+                        m.setTitle(post.getName() + "\n");
+                        m.setDesc(post.getDescription() + "\n");
+                        m.setImg(post.getImage());
+                        m.setPric(post.getPrice());
+                        getMyList.add(m);*/
                         Log.d("TAG2", "onResponse"+ (response.body()));
                     }
 
                     @Override
                     public void onFailure(Call<List<Post>> call, Throwable throwable) {
                         Log.d("TAG", "Response Failure =" + throwable.toString());
+                        Toast.makeText(MainActivity.this,"Oops! Something went wrong!", Toast.LENGTH_SHORT).show();
                     }
-
-
                 });
-
-
     }
 
-    public String getTitl() {
+    /*public String getTitl() {
         return title;
     }
 
@@ -103,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void setPric(Integer pric) {
         this.pric = pric;
-    }
+    }*/
 
-     private ArrayList<MainActivity> getMyList() {
+    private ArrayList<MainActivity> getMyList() {
        ArrayList<MainActivity> models = new ArrayList<>();
         MainActivity m = new MainActivity();/*
         m.setTitle("This is Title");
@@ -118,9 +121,9 @@ public class MainActivity extends AppCompatActivity {
         return models;}
 
    @Override
-public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu_main, menu);
-    return super.onCreateOptionsMenu(menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
 }
 
     @Override
