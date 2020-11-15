@@ -40,6 +40,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.mDes.setText(models.get(position).getDescription());
         Picasso.get().load(models.get(position).getImage()).fit().into(holder.mImageView);
         holder.mPrice.setText(models.get(position).getPrice());
+        holder.tPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.cl++;
+                holder.mColichestvo.setText(holder.cl + "");
+            }
+        });
+        holder.tMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.cl--;
+                holder.mColichestvo.setText(holder.cl + "");
+            }
+        });
 
 
 

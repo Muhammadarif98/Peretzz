@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +24,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
-    private ArrayList<Post> posts =new ArrayList<>();
 
-    /*private String title, descr;
-    private Integer pric;
-    private String img;*/
+    int cl;
+    private ArrayList<Post> posts =new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +56,6 @@ public class MainActivity extends AppCompatActivity {
                             myAdapter=new MyAdapter(MainActivity.this, posts);
                             mRecyclerView.setAdapter(myAdapter);
                         }
-                        /*//List<Post> getMyList = response.body();
-                       // Post m = new Post();
-                        List<Post> post =  new ArrayList<>();
-                        ArrayList<MainActivity> models = new ArrayList<>();
-                        m.setTitle(post.getName() + "\n");
-                        m.setDesc(post.getDescription() + "\n");
-                        m.setImg(post.getImage());
-                        m.setPric(post.getPrice());
-                        getMyList.add(m);*/
                         Log.d("TAG2", "onResponse"+ (response.body()));
                     }
 
@@ -74,51 +65,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,"Упс! Что то пошло не так", Toast.LENGTH_SHORT).show();
                     }
                 });
+
     }
-
-    /*public String getTitl() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDesc() {
-        return descr;
-    }
-
-    public void setDesc(String desc) {
-        this.descr = descr;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public Integer getPric() {
-        return pric;
-    }
-
-    public void setPric(Integer pric) {
-        this.pric = pric;
-    }*/
-
-    private ArrayList<MainActivity> getMyList() {
-       ArrayList<MainActivity> models = new ArrayList<>();
-        MainActivity m = new MainActivity();/*
-        m.setTitle("This is Title");
-        m.setDescription("This is new description..");
-        m.setPrice("400 ₽");
-        m.setImg(R.drawable.ic_launcher_background);
-        models.add(m);*/
-
-
-        return models;}
 
    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,4 +87,5 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
