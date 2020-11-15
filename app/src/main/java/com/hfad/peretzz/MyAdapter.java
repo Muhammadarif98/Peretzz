@@ -43,15 +43,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.tPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.cl++;
+               holder.cl++;
                 holder.mColichestvo.setText(holder.cl + "");
             }
         });
         holder.tMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.cl--;
-                holder.mColichestvo.setText(holder.cl + "");
+                    holder.cl--;
+                    holder.mColichestvo.setText(holder.cl + "");
             }
         });
 
