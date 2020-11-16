@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
     app:contentPaddingBottom="0dp"
@@ -13,7 +14,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="241dp"
+        android:layout_height="180dp"
         android:background="#101010"
         android:padding="16dp">
 
@@ -60,7 +61,7 @@
             android:layout_below="@id/descriptionTv"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="59dp"
             android:layout_toEndOf="@id/imageIv"
             android:layout_toRightOf="@id/imageIv"
             android:text="345"
@@ -75,7 +76,7 @@
             android:layout_below="@id/descriptionTv"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="55dp"
             android:layout_marginBottom="44dp"
             android:layout_toEndOf="@id/colichestvo"
             android:layout_toRightOf="@id/colichestvo"
@@ -86,9 +87,9 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_below="@id/descriptionTv"
-            android:layout_marginStart="27dp"
-            android:layout_marginLeft="27dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="55dp"
             android:layout_marginBottom="44dp"
             android:layout_toEndOf="@id/priceTv"
             android:layout_toRightOf="@id/priceTv"
@@ -99,16 +100,16 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_below="@id/descriptionTv"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="55dp"
             android:layout_toEndOf="@id/minus"
             android:layout_toRightOf="@id/minus"
             android:gravity="center"
             android:inputType="number"
-            android:text="0"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:text="0" />
 
 
     </RelativeLayout>

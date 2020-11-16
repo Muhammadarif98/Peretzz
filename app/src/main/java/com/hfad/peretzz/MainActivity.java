@@ -27,7 +27,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity{
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
-
     int cl;
     private ArrayList<Post> posts =new ArrayList<>();
 
@@ -44,6 +43,7 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        //myAdapter.updateValue(myAdapter.getValue());
 
         NetworkService.getInstance()
                 .getJsonApi()
