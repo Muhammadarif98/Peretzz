@@ -7,7 +7,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkService {
 
     private static NetworkService INSTANCE = null;
-    private RestService service;
     private Retrofit retrofit;
    String BASE_URL = "https://peretz-group.ru/api/v2/";
 

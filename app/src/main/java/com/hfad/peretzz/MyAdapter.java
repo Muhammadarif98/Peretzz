@@ -49,14 +49,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
             @Override
             public void onClick(View v) {
                 updateValue(holder,getValue(id) + 1,id);
-                // holder.cl++;// holder.mColichestvo.setText(holder.cl + "");
             }
         });
         holder.tMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateValue(holder,getValue(id) - 1,id);
-                //holder.cl--;//holder.mColichestvo.setText(holder.cl + "");
+                updateValue(holder,getValue(id)-1,id);
             }
         });
     }
@@ -65,10 +63,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.mColichestvo.setText(String.valueOf(newValue));
     }
     public int getValue(String id){
-
         return mPrefs.getInt(id,0);
     }
-
 
     @Override
     public int getItemCount() {

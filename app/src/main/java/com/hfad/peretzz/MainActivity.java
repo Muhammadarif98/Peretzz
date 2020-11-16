@@ -27,7 +27,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity{
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
-    int cl;
     private ArrayList<Post> posts =new ArrayList<>();
 
     @Override
