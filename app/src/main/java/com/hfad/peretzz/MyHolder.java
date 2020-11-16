@@ -14,8 +14,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
     TextView mTitle,mDes,mPrice;
     TextView mColichestvo;
     Button tPlus,tMinus;
-
-    int cl;
+    //int cl;
 
     public MyHolder(@NonNull View itemView) {
         super(itemView);

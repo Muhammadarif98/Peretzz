@@ -22,7 +22,6 @@ public class Post{
     private String image;
 
 
-
     public String getId() {
         return id;
     }

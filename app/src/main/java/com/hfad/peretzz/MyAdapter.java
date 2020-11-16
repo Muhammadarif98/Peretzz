@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context context;
-    ArrayList<Post> models; //этот массив создает список массива, параметрами которые являются наш класс Model
+    ArrayList<Post> models;
     SharedPreferences mPrefs;;
-    private static String PREF_VAL ;
+
 
     public MyAdapter(Context context, ArrayList<Post> models){
         this.context = context;
@@ -39,37 +39,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        PREF_VAL = models.get(position).getId();
         holder.mTitle.setText(models.get(position).getName());
         holder.mDes.setText(models.get(position).getDescription());
         Picasso.get().load(models.get(position).getImage()).fit().into(holder.mImageView);
         holder.mPrice.setText(models.get(position).getPrice());
+        String id = models.get(position).getId();
+        updateValue(holder,getValue(id),id);
         holder.tPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateValue(holder,getValue() + 1);
-                // holder.cl++;
-                // holder.mColichestvo.setText(holder.cl + "");
+                updateValue(holder,getValue(id) + 1,id);
+                // holder.cl++;// holder.mColichestvo.setText(holder.cl + "");
             }
         });
         holder.tMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateValue(holder,getValue() - 1);
-                //holder.cl--;
-                //holder.mColichestvo.setText(holder.cl + "");
+                updateValue(holder,getValue(id) - 1,id);
+                //holder.cl--;//holder.mColichestvo.setText(holder.cl + "");
             }
         });
-
-
-
     }
-    public void updateValue(MyHolder holder ,int newValue){
-        mPrefs.edit().putInt(PREF_VAL, newValue).apply();
+    public void updateValue(MyHolder holder ,int newValue,String id){
+        mPrefs.edit().putInt(id, newValue).apply();
         holder.mColichestvo.setText(String.valueOf(newValue));
     }
-    public int getValue(){
-        return mPrefs.getInt(PREF_VAL,0);
+    public int getValue(String id){
+
+        return mPrefs.getInt(id,0);
     }
 
 
