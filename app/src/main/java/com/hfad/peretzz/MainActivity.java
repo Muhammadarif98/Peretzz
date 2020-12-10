@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mRecyclerView = findViewById(R.id.recyclerViews);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity{
                     public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                         if (response.isSuccessful() && response.body()!=null){
                             posts = new ArrayList<>(response.body());
-                            myAdapter=new MyAdapter(MainActivity.this, posts);
+                            myAdapter=new MyAdapter(MainActivity.this,posts);
                             mRecyclerView.setAdapter(myAdapter);
                         }
                         Log.d("TAG2", "onResponse"+ (response.body()));

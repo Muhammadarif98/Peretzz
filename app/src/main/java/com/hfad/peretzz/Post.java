@@ -1,24 +1,18 @@
 package com.hfad.peretzz;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Post{
 
     @SerializedName("id")
-    @Expose
     private String id;
     @SerializedName("name")
-    @Expose
     private String name;
     @SerializedName("description")
-    @Expose
     private String description;
     @SerializedName("price")
-    @Expose
     private String price;
     @SerializedName("image")
-    @Expose
     private String image;
 
 

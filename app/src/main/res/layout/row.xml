@@ -13,28 +13,32 @@
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="393dp"
         android:layout_height="180dp"
-        android:background="#101010"
+        android:background="#181818"
         android:padding="16dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageIv"
-            android:layout_width="138dp"
-            android:layout_height="143dp"
-            android:src="@mipmap/ic_launcher"></androidx.appcompat.widget.AppCompatImageView>
+            android:layout_width="156dp"
+            android:layout_height="144dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-38dp"
+            android:src="@mipmap/ic_launcher">
+
+        </androidx.appcompat.widget.AppCompatImageView>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/titleTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_toEndOf="@id/imageIv"
             android:layout_toRightOf="@id/imageIv"
             android:text="Title"
             android:textColor="#ffff"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold">
 
         </androidx.appcompat.widget.AppCompatTextView>
@@ -44,14 +48,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="12dp"
             android:layout_toEndOf="@id/imageIv"
             android:layout_toRightOf="@id/imageIv"
             android:text="Description"
-            android:textColor="#a9a9a9"
-            android:textSize="14sp"
+            android:textColor="#686868"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
@@ -59,9 +63,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/descriptionTv"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="59dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:layout_toEndOf="@id/imageIv"
             android:layout_toRightOf="@id/imageIv"
             android:text="345"
@@ -71,12 +75,12 @@
 
         <Button
             android:id="@+id/plus"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_below="@id/descriptionTv"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="44dp"
             android:layout_toEndOf="@id/colichestvo"
             android:layout_toRightOf="@id/colichestvo"
@@ -84,31 +88,33 @@
 
         <Button
             android:id="@+id/minus"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_below="@id/descriptionTv"
-            android:layout_marginStart="38dp"
-            android:layout_marginLeft="38dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="12dp"
             android:layout_marginBottom="44dp"
             android:layout_toEndOf="@id/priceTv"
             android:layout_toRightOf="@id/priceTv"
+            android:visibility="invisible"
             android:background="@drawable/roundminus" />
 
         <TextView
             android:id="@+id/colichestvo"
-            android:layout_width="45dp"
-            android:layout_height="35dp"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/descriptionTv"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
             android:layout_toEndOf="@id/minus"
             android:layout_toRightOf="@id/minus"
             android:gravity="center"
             android:inputType="number"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:visibility="invisible"
             tools:text="0" />
 
 

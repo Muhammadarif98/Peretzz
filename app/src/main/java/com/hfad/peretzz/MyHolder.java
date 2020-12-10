@@ -8,13 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MyHolder extends RecyclerView.ViewHolder {
 
     ImageView mImageView;
     TextView mTitle,mDes,mPrice;
     TextView mColichestvo;
     Button tPlus,tMinus;
-
     public MyHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -27,5 +28,10 @@ public class MyHolder extends RecyclerView.ViewHolder {
         this.tMinus = itemView.findViewById(R.id.minus);
 
     }
+
+    public void bind(ArrayList<Post> models){
+
+    }
+
 
 }

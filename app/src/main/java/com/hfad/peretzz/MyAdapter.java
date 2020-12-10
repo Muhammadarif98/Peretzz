@@ -19,7 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context context;
     ArrayList<Post> models;
-    SharedPreferences mPrefs;;
+    SharedPreferences mPrefs;
 
 
     public MyAdapter(Context context, ArrayList<Post> models){
@@ -48,6 +48,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.tPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                holder.tMinus.setVisibility(View.VISIBLE);
+                holder.mColichestvo.setVisibility(View.VISIBLE);
                 updateValue(holder,getValue(id) + 1,id);
             }
         });
@@ -61,6 +63,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     public void updateValue(MyHolder holder ,int newValue,String id){
         mPrefs.edit().putInt(id, newValue).apply();
         holder.mColichestvo.setText(String.valueOf(newValue));
+        if (holder.mColichestvo.getText().toString().equals("0")){
+            holder.tMinus.setVisibility(View.INVISIBLE);
+            holder.mColichestvo.setVisibility(View.INVISIBLE);
+        }
     }
     public int getValue(String id){
         return mPrefs.getInt(id,0);
