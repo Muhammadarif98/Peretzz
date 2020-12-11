@@ -6,14 +6,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 
@@ -25,8 +26,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity{
-    RecyclerView mRecyclerView;
-    MyAdapter myAdapter;
+   private RecyclerView mRecyclerView;
+   private MyAdapter myAdapter;
+
+   SharedPreferences mPrefs ;
+
     private ArrayList<Post> posts =new ArrayList<>();
 
     @Override
@@ -37,11 +41,13 @@ public class MainActivity extends AppCompatActivity{
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mPrefs= PreferenceManager
+                .getDefaultSharedPreferences(this);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        //myAdapter.updateValue(myAdapter.getValue());
 
         NetworkService.getInstance()
                 .getJsonApi()
@@ -51,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
                     public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                         if (response.isSuccessful() && response.body()!=null){
                             posts = new ArrayList<>(response.body());
-                            myAdapter=new MyAdapter(MainActivity.this,posts);
+                            myAdapter=new MyAdapter(mPrefs,posts);
                             mRecyclerView.setAdapter(myAdapter);
                         }
                         Log.d("TAG2", "onResponse"+ (response.body()));
@@ -85,5 +91,7 @@ public class MainActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 
 }

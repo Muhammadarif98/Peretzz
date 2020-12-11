@@ -1,5 +1,6 @@
 package com.hfad.peretzz;
 
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -8,7 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+
+
 
 public class MyHolder extends RecyclerView.ViewHolder {
 
@@ -29,8 +32,27 @@ public class MyHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bind(ArrayList<Post> models){
-
+    public void bind(Post models,MyAdapter adapter){
+        mTitle.setText(models.getName());
+        mDes.setText(models.getDescription());
+        Picasso.get().load(models.getImage()).fit().into(mImageView);
+        mPrice.setText(models.getPrice());
+        String id = models.getId();
+        adapter.updateValue(MyHolder.this,adapter.getValue(id),id);
+        tPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tMinus.setVisibility(View.VISIBLE);
+                mColichestvo.setVisibility(View.VISIBLE);
+                adapter.updateValue(MyHolder.this,adapter.getValue(id) + 1,id);
+            }
+        });
+        tMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.updateValue(MyHolder.this,adapter.getValue(id)-1,id);
+            }
+        });
     }
 
 

@@ -17,15 +17,14 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
-    Context context;
+
     ArrayList<Post> models;
     SharedPreferences mPrefs;
 
-
-    public MyAdapter(Context context, ArrayList<Post> models){
-        this.context = context;
+    public MyAdapter(SharedPreferences mPrefs ,ArrayList<Post> models){
         this.models = models;
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.mPrefs = mPrefs;
+
 
     }
 
@@ -39,26 +38,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.mTitle.setText(models.get(position).getName());
-        holder.mDes.setText(models.get(position).getDescription());
-        Picasso.get().load(models.get(position).getImage()).fit().into(holder.mImageView);
-        holder.mPrice.setText(models.get(position).getPrice());
-        String id = models.get(position).getId();
-        updateValue(holder,getValue(id),id);
-        holder.tPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.tMinus.setVisibility(View.VISIBLE);
-                holder.mColichestvo.setVisibility(View.VISIBLE);
-                updateValue(holder,getValue(id) + 1,id);
-            }
-        });
-        holder.tMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateValue(holder,getValue(id)-1,id);
-            }
-        });
+        holder.bind(models.get(position),MyAdapter.this);
+
     }
     public void updateValue(MyHolder holder ,int newValue,String id){
         mPrefs.edit().putInt(id, newValue).apply();
@@ -69,7 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         }
     }
     public int getValue(String id){
-        return mPrefs.getInt(id,0);
+       return mPrefs.getInt(id, 0);
     }
 
     @Override
