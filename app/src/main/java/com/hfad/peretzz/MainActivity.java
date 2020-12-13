@@ -43,12 +43,12 @@ public class MainActivity extends AppCompatActivity{
 
         mPrefs= PreferenceManager
                 .getDefaultSharedPreferences(this);
-
+        myAdapter=new MyAdapter(mPrefs,posts);
+        mRecyclerView.setAdapter(myAdapter);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
         NetworkService.getInstance()
                 .getJsonApi()
                 .getPost()
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity{
                             posts = new ArrayList<>(response.body());
                             myAdapter=new MyAdapter(mPrefs,posts);
                             mRecyclerView.setAdapter(myAdapter);
+
                         }
                         Log.d("TAG2", "onResponse"+ (response.body()));
                     }
