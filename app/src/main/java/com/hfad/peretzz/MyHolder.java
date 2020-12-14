@@ -50,7 +50,12 @@ public class MyHolder extends RecyclerView.ViewHolder {
         tMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.updateValue(MyHolder.this,adapter.getValue(id)-1,id);
+                if (mColichestvo.getText().toString().equals("0")){
+                    adapter.updateValue(MyHolder.this,adapter.getValue(id) - adapter.getValue(id), id);
+                }else {
+                    adapter.updateValue(MyHolder.this,adapter.getValue(id)-1,id);
+                }
+
             }
         });
     }
